@@ -153,7 +153,7 @@
 
         putProduct(product) {
             let available = this.goodList.findIndex(function(item) {
-                return item.name === product.name;
+                return item.id === product.id;
             });
             if (available === -1) {
                 this.goodList.push(Object.assign({}, product));
@@ -161,10 +161,6 @@
             } else {
                 this.goodList[available].count += 1;
             }
-        },
-
-        fillBasket(index){
-            this.putProduct(this.products[index]);
         },
 
         generateProductHTML(index) {
@@ -175,7 +171,7 @@
                 <h4>${basket.products[index].prodName}</h4>
                 <span>Ингредиенты:</span>
                 <p class="prod-discr">${basket.products[index].prodIngredient}</p>
-                <div class="ccd"><a href="#" id="buy-Button" class="ddott">Купить</a></div>
+                <div class="ccd"><button class="buy-Button ddott">Купить</button></div>
             </div>`;
         },
 
@@ -203,13 +199,13 @@
             let basketBody = document.querySelector("#basket-body");
             basketBody.innerHTML = this.generateBasketHTML();
             if (this.goodList.length > 0) {
-                this.printProducts("#basket-body", )
+                this.printProducts("#basket-body", this.goodList)
             }
         }
     };
 
 
-    function showBasket() {
+   // function showBasket() {
 
         // if (document.querySelector(".basket-body") == null) {
         //     let basketBody = document.createElement("div"),
@@ -234,18 +230,26 @@
         //     document.querySelector(".basket-body").remove();
         //     return showBasket();
         // }
-    }
+   // }
 
     function closeBasket() {
-        document.querySelector(".basket-body").remove();
+        document.querySelector("#basket-body").remove();
     }
 
     function clearBasket() {
         basket.goodList = [];
         basketIcon.style.display = "none";
     }
+
+    function buyProd() {
+        basket.putProduct();
+        basket.printBasket();
+    }
+
     basket.printProducts("#prod-list", basket.products);
     document.getElementById("clear-basket").onclick = clearBasket;
+    document.querySelectorAll(".buy-Button").onclick = buyProd;
+
     //baskeForm.onclick = showBasket;
 </script>
 </body>

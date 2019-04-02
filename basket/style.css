@@ -80,7 +80,7 @@ body {
     border-radius: 4px;
 }
 
-a.ddott {
+button.ddott {
     margin:0 auto;
     display: block;
     line-height: 25px;
@@ -98,7 +98,7 @@ a.ddott {
     -ms-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
-a.ddott:hover {
+button.ddott:hover {
     text-shadow: 0 50px 0 #FFF, 1px 51px 20px #FFF;
     margin-top: -50px;
     height: 100px;

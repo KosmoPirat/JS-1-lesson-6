@@ -9,6 +9,8 @@ let ticTakToe = {
     ],
     phase: 'X',
     status: 'playing',
+    colNum: 3,
+    rowNum: 3,
 
     init() {
         this.renderMap();
@@ -16,13 +18,13 @@ let ticTakToe = {
     },
 
     renderMap() {
-        for (let row = 0; row < 3; row++) {
+        for (let row = 0; row < this.rowNum; row++) {
             // Создаем линию.
             const tr = document.createElement('tr');
             // Добавляем линию в таблицу.
             this.gameTableElement.appendChild(tr);
             // Пробегаемся по всем колонкам.
-            for (let col = 0; col < 3; col++) {
+            for (let col = 0; col < this.colNum; col++) {
                 // Создаем колонку.
                 let td = document.createElement('td');
                 // Добавляем в data-аттрибуты данные с номерами этой ячейки.
@@ -93,22 +95,28 @@ let ticTakToe = {
     },
 
     hasWon() {
-
-        return this.isLineWon({x: 0, y: 0}, {x: 1, y: 0}, {x: 2, y: 0}) ||
-            this.isLineWon({x: 0, y: 1}, {x: 1, y: 1}, {x: 2, y: 1}) ||
-            this.isLineWon({x: 0, y: 2}, {x: 1, y: 2}, {x: 2, y: 2}) ||
-
-            this.isLineWon({x: 0, y: 0}, {x: 0, y: 1}, {x: 0, y: 2}) ||
-            this.isLineWon({x: 1, y: 0}, {x: 1, y: 1}, {x: 1, y: 2}) ||
-            this.isLineWon({x: 2, y: 0}, {x: 2, y: 1}, {x: 2, y: 2}) ||
-
-            this.isLineWon({x: 0, y: 0}, {x: 1, y: 1}, {x: 2, y: 2}) ||
-            this.isLineWon({x: 0, y: 2}, {x: 1, y: 1}, {x: 2, y: 0});
+        let rows = new Array(this.rowNum).fill('');
+        let cols = new Array(this.rowNum).fill('');
+        let cross = new Array(2).fill('');
+        for(let i = 0; i < this.rowNum; i++) {
+            cross[0] += this.mapValues[i][i];
+            cross[1] += this.mapValues[this.rowNum - 1][i];
+            for(let j = 0; j < this.colNum; j++) {
+                cols[i] += this.mapValues[j][i];
+                rows[i] += this.mapValues[i][j];
+            }
+        }
+        return console.log(rows)
     },
 
-    isLineWon(a, b, c) {
-        let value = this.mapValues[a.y][a.x] + this.mapValues[b.y][b.x] + this.mapValues[c.y][c.x];
-        return value === 'XXX' || value === '000';
+    isLineWon(str) {
+        let winX = "";
+        let winO = "";
+        for(let i = 0; i < this.colNum; i++) {
+            winX += "X";
+            winO += "0"
+        }
+        return winX === str || winO === str;
     },
 };
 

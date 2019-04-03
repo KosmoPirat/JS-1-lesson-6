@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27261c9c-7aba-4041-aa53-c4d4bc48d256" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/basket/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/basket/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tictaktoe/code.js" beforeDir="false" afterPath="$PROJECT_DIR$/tictaktoe/code.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,27 +16,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/basket/index.html">
+      <file leaf-file-name="code.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tictaktoe/code.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="223" column="52" lean-forward="true" selection-start-line="223" selection-start-column="52" selection-end-line="223" selection-end-column="52" />
+            <state relative-caret-position="583">
+              <caret line="108" column="32" lean-forward="true" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="code.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework5/homework5/2/code.js">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tictaktoe/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-138" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/basket/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
+            <state relative-caret-position="598">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -58,6 +49,7 @@
       <list>
         <option value="$PROJECT_DIR$/basket/style.css" />
         <option value="$PROJECT_DIR$/basket/index.html" />
+        <option value="$PROJECT_DIR$/tictaktoe/code.js" />
       </list>
     </option>
   </component>
@@ -91,25 +83,7 @@
             <path>
               <item name="JS-1-lesson-6" type="b2602c69:ProjectViewProjectNode" />
               <item name="JS-1-lesson-6" type="462c0819:PsiDirectoryNode" />
-              <item name="basket" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JS-1-lesson-6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JS-1-lesson-6" type="462c0819:PsiDirectoryNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JS-1-lesson-6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JS-1-lesson-6" type="462c0819:PsiDirectoryNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JS-1-lesson-6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JS-1-lesson-6" type="462c0819:PsiDirectoryNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="homework5" type="462c0819:PsiDirectoryNode" />
-              <item name="2" type="462c0819:PsiDirectoryNode" />
+              <item name="tictaktoe" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -147,12 +121,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1554187726828</updated>
-      <workItem from="1554187729239" duration="42859000" />
+      <workItem from="1554187729239" duration="48394000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42859000" />
+    <option name="totallyTimeSpent" value="48394000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -184,6 +158,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/basket/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="202" column="70" lean-forward="true" selection-start-line="202" selection-start-column="70" selection-end-line="202" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/homework5/homework5/2/code.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-138" />
@@ -196,10 +177,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/basket/index.html">
+    <entry file="file://$PROJECT_DIR$/tictaktoe/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="223" column="52" lean-forward="true" selection-start-line="223" selection-start-column="52" selection-end-line="223" selection-end-column="52" />
+        <state relative-caret-position="598">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tictaktoe/code.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="108" column="32" lean-forward="true" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
         </state>
       </provider>
     </entry>

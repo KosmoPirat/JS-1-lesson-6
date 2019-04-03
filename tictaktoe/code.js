@@ -106,7 +106,7 @@ let ticTakToe = {
                 rows[i] += this.mapValues[i][j];
             }
         }
-        return console.log(rows)
+        return rows.some(function (item) {ticTakToe.isLineWon(item)}) || cols.some(function (item) {ticTakToe.isLineWon(item)}) || cross.some(function (item) {ticTakToe.isLineWon(item)});
     },
 
     isLineWon(str) {

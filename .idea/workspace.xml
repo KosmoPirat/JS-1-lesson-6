@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27261c9c-7aba-4041-aa53-c4d4bc48d256" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/basket/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/basket/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/basket/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/basket/style.css" afterDir="false" />
     </list>
@@ -20,17 +21,24 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/basket/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
+            <state relative-caret-position="560">
+              <caret line="223" column="52" lean-forward="true" selection-start-line="223" selection-start-column="52" selection-end-line="223" selection-end-column="52" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="code.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework5/homework5/2/code.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-138" />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/basket/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="94" column="45" lean-forward="true" selection-start-line="94" selection-start-column="45" selection-end-line="94" selection-end-column="45" />
+            <state relative-caret-position="391">
+              <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -63,10 +71,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="616" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -84,6 +92,24 @@
               <item name="JS-1-lesson-6" type="b2602c69:ProjectViewProjectNode" />
               <item name="JS-1-lesson-6" type="462c0819:PsiDirectoryNode" />
               <item name="basket" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JS-1-lesson-6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JS-1-lesson-6" type="462c0819:PsiDirectoryNode" />
+              <item name="homework5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JS-1-lesson-6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JS-1-lesson-6" type="462c0819:PsiDirectoryNode" />
+              <item name="homework5" type="462c0819:PsiDirectoryNode" />
+              <item name="homework5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JS-1-lesson-6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JS-1-lesson-6" type="462c0819:PsiDirectoryNode" />
+              <item name="homework5" type="462c0819:PsiDirectoryNode" />
+              <item name="homework5" type="462c0819:PsiDirectoryNode" />
+              <item name="2" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -121,18 +147,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1554187726828</updated>
-      <workItem from="1554187729239" duration="22296000" />
+      <workItem from="1554187729239" duration="42859000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22296000" />
+    <option name="totallyTimeSpent" value="42859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24986821" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24986821" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
@@ -158,17 +184,22 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/homework5/homework5/2/code.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-138" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/basket/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="94" column="45" lean-forward="true" selection-start-line="94" selection-start-column="45" selection-end-line="94" selection-end-column="45" />
+        <state relative-caret-position="391">
+          <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/basket/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
+        <state relative-caret-position="560">
+          <caret line="223" column="52" lean-forward="true" selection-start-line="223" selection-start-column="52" selection-end-line="223" selection-end-column="52" />
         </state>
       </provider>
     </entry>

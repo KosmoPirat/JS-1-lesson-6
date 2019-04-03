@@ -3,6 +3,16 @@ body {
     font-family: Arial;
 }
 
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
 #prod-list {
     width: 950px;
     margin: 80px auto;
@@ -81,15 +91,17 @@ body {
 }
 
 button.ddott {
-    margin:0 auto;
+    margin: 0 auto;
+    padding: 0 27%;
     display: block;
     line-height: 25px;
     height: 25px;
     overflow: hidden;
     text-align: center;
     text-decoration: none;
+    font-size: 16px;
     font-weight: bold;
-    text-shadow: 0 100px 0 #FFF,1px 76px 10px #000;
+    text-shadow: 0 100px 0 #FFF, 1px 76px 10px #000;
     color: #FFF;
     background: #a1392b;
     -webkit-transition: all 0.3s ease-in-out;
@@ -100,8 +112,8 @@ button.ddott {
 }
 button.ddott:hover {
     text-shadow: 0 50px 0 #FFF, 1px 51px 20px #FFF;
-    margin-top: -50px;
-    height: 100px;
+    margin-top: -130px;
+    height: 184px;
     background: #222;
 }
 
@@ -142,28 +154,24 @@ button.ddott:hover {
 
 #basket-body {
     display: none;
-    width: 600px;
-    height: 200px;
+    width: 700px;
     box-shadow: 0 1px 5px rgba(0,0,0,0.7);
     background-color: darkgray;
     position: relative;
     margin: 30px auto;
+    padding-top: 50px;
+    padding-bottom: 30px;
     color: white;
     font-size: 20px;
     font-weight: bold;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-#basket-body h4 {
-    margin-top: 30px;
-    font-size: 20px;
-    color: white;
-    font-weight: bold;
-}
-
-#basket-body span {
-    margin-top: 40px;
-    font-size: 18px;
-    color: white;
+#basket-body h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 #close {

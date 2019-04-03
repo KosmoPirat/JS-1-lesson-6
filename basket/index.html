@@ -8,9 +8,14 @@
 </head>
 <body>
 <section id="prod-list"></section>
-<div id="basket"></div>
-<div id="basket-body"></div>
-<button id="clear-basket">Clear Basket</button>
+<div id="basket">
+    <div id="prod-count"></div>
+</div>
+<div id="basket-body">
+    <div id="close"></div>
+</div>
+    <button id="clear-basket">Clear Basket</button>
+
 
 
 <script>
@@ -165,13 +170,15 @@
 
         generateProductHTML(index) {
             return `
-            <div class="product" data-prodId="${basket.products[index].id}">
-                <span id="prod-price"> Цена: ${basket.products[index].prodPrice}</span>
+            <div class="product">
+                <span id="prod-price">Цена: ${basket.products[index].prodPrice}</span>
                 <img src="${basket.products[index].imgURL}" alt="${basket.products[index].prodName}">
                 <h4>${basket.products[index].prodName}</h4>
                 <span>Ингредиенты:</span>
                 <p class="prod-discr">${basket.products[index].prodIngredient}</p>
-                <div class="ccd"><button class="buy-Button ddott">Купить</button></div>
+                <div class="ccd">
+                    <button class="ddott" data-buy="buy-Button" data-prodId="${basket.products[index].id}">Купить</button>
+                </div>
             </div>`;
         },
 
@@ -185,72 +192,79 @@
 
         printProducts(selId, products) {
             let prodList = document.querySelector(selId);
-            prodList.innerHTML = this.generateAllProdHTML(products);
+            if(selId === "#basket-body") prodList.innerHTML = generateAllProdInBasketHTML(products);
+            else prodList.innerHTML = this.generateAllProdHTML(products);
         },
 
-        generateBasketHTML() {
-            return `
-                    <h4>Корзина</h4>
-                    <span>Вы ничего не положили в корзину!</span>
-            `;
-        },
-
-        printBasket() {
-            let basketBody = document.querySelector("#basket-body");
-            basketBody.innerHTML = this.generateBasketHTML();
-            if (this.goodList.length > 0) {
-                this.printProducts("#basket-body", this.goodList)
-            }
-        }
     };
 
 
-   // function showBasket() {
-
-        // if (document.querySelector(".basket-body") == null) {
-        //     let basketBody = document.createElement("div"),
-        //         closeButton = document.createElement("div");
-        //     basketBody.className = "basket-body";
-        //     closeButton.id = "close";
-        //     baskeForm.insertAdjacentElement("afterend", baskeForm.appendChild(basketBody));
-        //     basketBody.insertAdjacentElement("afterbegin", basketBody.appendChild(closeButton));
-        //     document.getElementById("close").onclick = closeBasket;
-        //     console.log(basket.goodList);
-        //     if (basket.goodList.length == []) {
-        //         let par = document.createElement("p");
-        //         par.innerHTML = "Козина пуста!";
-        //         basketBody.insertAdjacentElement("beforeend", basketBody.appendChild(par));
-        //     } else {
-        //         let par = document.createElement("p");
-        //         par.innerHTML =
-        //             `Колличество ваших товаров: ${basket.countTotalNumber()}<br>Сумма покупки: ${basket.countTotalPrice()}`;
-        //         basketBody.insertAdjacentElement("beforeend", basketBody.appendChild(par));
-        //     }
-        // } else {
-        //     document.querySelector(".basket-body").remove();
-        //     return showBasket();
-        // }
-   // }
-
     function closeBasket() {
-        document.querySelector("#basket-body").remove();
+        document.querySelector("#basket-body").style.display = "none";
     }
 
     function clearBasket() {
         basket.goodList = [];
-        basketIcon.style.display = "none";
+        let count = document.querySelector('#prod-count');
+        count.style.display = "none";
+        printBasket()
+    }
+    function generateProdInBasketHTML(index) {
+        return `
+            <div class="product">
+                <span id="prod-price">
+                    Цена: ${basket.goodList[index].prodPrice}<br>
+                    Кол-во: ${basket.goodList[index].count} шт.
+                </span>
+                <img src="${basket.goodList[index].imgURL}" alt="${basket.goodList[index].prodName}">
+                <h4>${basket.goodList[index].prodName}</h4>
+            </div>`;
     }
 
-    function buyProd() {
-        basket.putProduct();
-        basket.printBasket();
+    function generateAllProdInBasketHTML(products) {
+        let allProdStr = `
+            <h3>Корзина</h3>
+            <div id="close"></div>
+            <p>Общее кол-во товаров: ${basket.countTotalNumber()} шт.</p>
+            <p>Общее стимость товаров: ${basket.countTotalPrice()} руб.</p>`;
+        for (let i = 0; i < products.length; i++) {
+            allProdStr += generateProdInBasketHTML(i);
+        }
+        return allProdStr;
+    }
+
+    function buyProd (event) {
+        let prod = event.target;
+        if(prod.dataset.buy !== "buy-Button") return;
+        let available = basket.products.findIndex(function(item) {
+            return item.id === +prod.dataset.prodid;
+        });
+        basket.putProduct(basket.products[available]);
+        printBasket();
+    }
+
+    function printBasket() {
+        let basketBody = document.querySelector("#basket-body");
+        basketBody.style.display = "flex";
+        basketBody.innerHTML = `<h3>Корзина</h3><div id="close"></div><p>Вы ничего не положили!</p>`;
+        if (basket.goodList.length > 0) {
+            basket.printProducts("#basket-body", basket.goodList)
+        }
+        showProdCount();
+        document.querySelector('#close').onclick = closeBasket;
+    }
+
+    function showProdCount() {
+        let count = document.querySelector('#prod-count');
+        count.style.display = "block";
+        count.innerHTML = basket.countTotalNumber();
     }
 
     basket.printProducts("#prod-list", basket.products);
+    let buyButton = document.querySelector("#prod-list");
+    buyButton.addEventListener('click', buyProd);
     document.getElementById("clear-basket").onclick = clearBasket;
-    document.querySelectorAll(".buy-Button").onclick = buyProd;
-
-    //baskeForm.onclick = showBasket;
+    document.querySelector('#basket').addEventListener('click', printBasket);
 </script>
 </body>
 </html>

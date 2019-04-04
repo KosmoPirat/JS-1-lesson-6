@@ -2,29 +2,31 @@
 
 let ticTakToe = {
     gameTableElement: document.getElementById('game'),
-    mapValues: [
-        ['', '', ''],
-        ['', '', ''],
-        ['', '', '']
-    ],
+    mapValues: [],
     phase: 'X',
     status: 'playing',
-    colNum: 3,
-    rowNum: 3,
+    dificle: 5,
+
+    generateMapValues() {
+      for(let i = 0; i < this.dificle; i++) {
+          this.mapValues[i] = new Array(this.dificle).fill('');
+      }
+    },
 
     init() {
+        this.generateMapValues();
         this.renderMap();
         this.initEventHandlers();
     },
 
     renderMap() {
-        for (let row = 0; row < this.rowNum; row++) {
+        for (let row = 0; row < this.dificle; row++) {
             // Создаем линию.
             const tr = document.createElement('tr');
             // Добавляем линию в таблицу.
             this.gameTableElement.appendChild(tr);
             // Пробегаемся по всем колонкам.
-            for (let col = 0; col < this.colNum; col++) {
+            for (let col = 0; col < this.dificle; col++) {
                 // Создаем колонку.
                 let td = document.createElement('td');
                 // Добавляем в data-аттрибуты данные с номерами этой ячейки.
@@ -40,12 +42,11 @@ let ticTakToe = {
     },
 
     cellClickHandler(event) {
-        if(!this.isCorrectClick(event)) {
+        if (!this.isCorrectClick(event)) {
             return;
         }
         this.fillCell(event);
-
-        if(this.hasWon()) {
+        if (this.hasWon()) {
             this.setStatusStopped();
             this.sayWonPhrase();
         }
@@ -63,7 +64,7 @@ let ticTakToe = {
     },
 
     togglePhase() {
-        this.phase = this.phase === 'X' ? '0': 'X';
+        this.phase = this.phase === 'X' ? '0' : 'X';
     },
 
     fillCell(event) {
@@ -75,7 +76,7 @@ let ticTakToe = {
     },
 
     isCorrectClick(event) {
-        return this.isStatusPlaying(event) &&  this.isClickByCell(event) && this.isCellEmpty(event);
+        return this.isStatusPlaying(event) && this.isClickByCell(event) && this.isCellEmpty(event);
     },
 
     isStatusPlaying() {
@@ -95,26 +96,27 @@ let ticTakToe = {
     },
 
     hasWon() {
-        let rows = new Array(this.rowNum).fill('');
-        let cols = new Array(this.rowNum).fill('');
+        let rows = new Array(this.dificle).fill('');
+        let cols = new Array(this.dificle).fill('');
         let cross = new Array(2).fill('');
-        for(let i = 0; i < this.rowNum; i++) {
+        for (let i = 0; i < this.dificle; i++) {
             cross[0] += this.mapValues[i][i];
-            cross[1] += this.mapValues[this.rowNum - 1][i];
-            for(let j = 0; j < this.colNum; j++) {
+            cross[1] += this.mapValues[this.dificle - 1 - i][i];
+            for (let j = 0; j < this.dificle; j++) {
                 cols[i] += this.mapValues[j][i];
                 rows[i] += this.mapValues[i][j];
             }
         }
-        return rows.some(function (item) {ticTakToe.isLineWon(item)}) || cols.some(function (item) {ticTakToe.isLineWon(item)}) || cross.some(function (item) {ticTakToe.isLineWon(item)});
+
+        return rows.some(this.isLineWon) || cols.some(this.isLineWon) || cross.some(this.isLineWon);
     },
 
     isLineWon(str) {
-        let winX = "";
-        let winO = "";
-        for(let i = 0; i < this.colNum; i++) {
-            winX += "X";
-            winO += "0"
+        let winX = '';
+        let winO = '';
+        for (let i = 0; i < ticTakToe.dificle; i++) {
+            winX += 'X';
+            winO += '0';
         }
         return winX === str || winO === str;
     },

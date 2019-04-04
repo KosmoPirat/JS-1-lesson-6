@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Lesson 5</title>
+</head>
+<body>
+<section id="prod-list"></section>
+<div id="basket">
+    <div id="prod-count"></div>
+</div>
+<div id="basket-body">
+    <div id="close"></div>
+</div>
+    <button id="clear-basket">Clear Basket</button>
+
+
+
+<script>
+    "use strict";
+
+    let basket = {
+
+        goodList: [],
+
+        products: [
+            {
+                id: 1,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Виноградный напиток",
+                prodPrice: 234,
+                prodIngredient: "вино, шампанское"
+            },
+            {
+                id: 2,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Адмирал",
+                prodPrice: 423,
+                prodIngredient: "вермут, виски"
+            },
+            {
+                id: 3,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Апельсиновое цветение",
+                prodPrice: 455,
+                prodIngredient: "джин"
+            },
+            {
+                id: 4,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Веселый еж",
+                prodPrice: 774,
+                prodIngredient: "вермут, виски"
+            },
+            {
+                id: 5,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Апельсиновый делайт",
+                prodPrice: 765,
+                prodIngredient: "водка, ликер"
+            },
+            {
+                id: 6,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Барьерный риф",
+                prodPrice: 774,
+                prodIngredient: "джин, ликер"
+            },
+            {
+                id: 7,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль БИ И СИ",
+                prodPrice: 231,
+                prodIngredient: "кальвадос, ликер"
+            },
+            {
+                id: 8,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Александр Невский",
+                prodPrice: 776,
+                prodIngredient: "водка, ликер"
+            },
+            {
+                id: 9,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Водка 7",
+                prodPrice: 986,
+                prodIngredient: "водка"
+            },
+            {
+                id: 10,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Вандербильта",
+                prodPrice: 235,
+                prodIngredient: "бренди, ликер, биттер"
+            },
+            {
+                id: 11,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Биоплазма",
+                prodPrice: 644,
+                prodIngredient: "абсент, вино"
+            },
+            {
+                id: 12,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Бункер",
+                prodPrice: 300,
+                prodIngredient: "виски"
+            },
+            {
+                id: 13,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Ананасовый гудок",
+                prodPrice: 455,
+                prodIngredient: "джин, ликер"
+            },
+            {
+                id: 14,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Апельсиновая водка",
+                prodPrice: 877,
+                prodIngredient: "водка, ликер"
+            },
+            {
+                id: 15,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Брыкливая лошадь",
+                prodPrice: 231,
+                prodIngredient: "кальвадос, ром, вермут"
+            },
+            {
+                id: 16,
+                imgURL: "img/prod_img-1_200x200.jpg",
+                prodName: "коктейль Белый груз",
+                prodPrice: 765,
+                prodIngredient: "джин"
+            },
+        ],
+
+        countTotalPrice() {
+            let totalCost = 0;
+            this.goodList.forEach(function (item) {
+                totalCost += item.prodPrice * item.count;
+            });
+            return totalCost;
+        },
+
+        countTotalNumber() {
+            let totalCount = 0;
+            this.goodList.forEach(function (item) {
+                totalCount += item.count;
+            });
+            return totalCount;
+        },
+
+        putProduct(product) {
+            let available = this.goodList.findIndex(function(item) {
+                return item.id === product.id;
+            });
+            if (available === -1) {
+                this.goodList.push(Object.assign({}, product));
+                this.goodList[this.goodList.length - 1].count = 1;
+            } else {
+                this.goodList[available].count += 1;
+            }
+        },
+
+        generateProductHTML(index) {
+            return `
+            <div class="product">
+                <span id="prod-price">Цена: ${basket.products[index].prodPrice}</span>
+                <img src="${basket.products[index].imgURL}" alt="${basket.products[index].prodName}">
+                <h4>${basket.products[index].prodName}</h4>
+                <span>Ингредиенты:</span>
+                <p class="prod-discr">${basket.products[index].prodIngredient}</p>
+                <div class="ccd">
+                    <button class="ddott" data-buy="buy-Button" data-prodId="${basket.products[index].id}">Купить</button>
+                </div>
+            </div>`;
+        },
+
+        generateAllProdHTML(products) {
+            let allProdStr = "";
+            for (let i = 0; i < products.length; i++) {
+                allProdStr += this.generateProductHTML(i);
+            }
+            return allProdStr;
+        },
+
+        printProducts(selId, products) {
+            let prodList = document.querySelector(selId);
+            if(selId === "#basket-body") prodList.innerHTML = generateAllProdInBasketHTML(products);
+            else prodList.innerHTML = this.generateAllProdHTML(products);
+        },
+
+    };
+
+
+    function closeBasket() {
+        document.querySelector("#basket-body").style.display = "none";
+    }
+
+    function clearBasket() {
+        basket.goodList = [];
+        let count = document.querySelector('#prod-count');
+        count.style.display = "none";
+        printBasket()
+    }
+    function generateProdInBasketHTML(index) {
+        return `
+            <div class="product">
+                <span id="prod-price">
+                    Цена: ${basket.goodList[index].prodPrice}<br>
+                    Кол-во: ${basket.goodList[index].count} шт.
+                </span>
+                <img src="${basket.goodList[index].imgURL}" alt="${basket.goodList[index].prodName}">
+                <h4>${basket.goodList[index].prodName}</h4>
+            </div>`;
+    }
+
+    function generateAllProdInBasketHTML(products) {
+        let allProdStr = `
+            <h3>Корзина</h3>
+            <div id="close"></div>
+            <p>Общее кол-во товаров: ${basket.countTotalNumber()} шт.</p>
+            <p>Общая стимость товаров: ${basket.countTotalPrice()} руб.</p>`;
+        for (let i = 0; i < products.length; i++) {
+            allProdStr += generateProdInBasketHTML(i);
+        }
+        return allProdStr;
+    }
+
+    function buyProd (event) {
+        let prod = event.target;
+        if(prod.dataset.buy !== "buy-Button") return;
+        let available = basket.products.findIndex(function(item) {
+            return item.id === +prod.dataset.prodid;
+        });
+        basket.putProduct(basket.products[available]);
+        printBasket();
+    }
+
+    function printBasket() {
+        let basketBody = document.querySelector("#basket-body");
+        basketBody.style.display = "flex";
+        basketBody.innerHTML = `<h3>Корзина</h3><div id="close"></div><p>Вы ничего не положили!</p>`;
+        if (basket.goodList.length > 0) {
+            basket.printProducts("#basket-body", basket.goodList)
+        }
+        showProdCount();
+        document.querySelector('#close').onclick = closeBasket;
+    }
+
+    function showProdCount() {
+        let count = document.querySelector('#prod-count');
+        count.style.display = "block";
+        count.innerHTML = basket.countTotalNumber();
+    }
+
+    basket.printProducts("#prod-list", basket.products);
+    let buyButton = document.querySelector("#prod-list");
+    buyButton.addEventListener('click', buyProd);
+    document.getElementById("clear-basket").onclick = clearBasket;
+    document.querySelector('#basket').addEventListener('click', printBasket);
+</script>
+</body>
+</html>

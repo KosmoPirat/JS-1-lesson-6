@@ -1,0 +1,229 @@
+body {
+    background-color: #dadada;
+    font-family: Arial;
+}
+
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+#prod-list {
+    width: 950px;
+    margin: 80px auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product {
+    position: relative;
+    width: 200px;
+    outline: 1px solid #555555;
+    margin-bottom: 30px;
+    background-color: #fff;
+}
+
+#prod-price {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    align-content: right;
+    background-color: darkred;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.product img {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.product h4 {
+    text-align: left;
+    color: #555;
+    height: 32px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+.product span {
+    text-align: left;
+    font-weight: bold;
+    color: #555;
+    font-size: 12px;
+    padding: 0 10px;
+
+}
+
+.product p {
+    font-family: Arial;
+    text-align: left;
+    color: #555;
+    font-size: 14px;
+    font-style: italic;
+    padding: 0 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.ccd {
+    height: 25px;
+    overflow: hidden;
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+button.ddott {
+    margin: 0 auto;
+    padding: 0 27%;
+    display: block;
+    line-height: 25px;
+    height: 25px;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0 100px 0 #FFF, 1px 76px 10px #000;
+    color: #FFF;
+    background: #a1392b;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+button.ddott:hover {
+    text-shadow: 0 50px 0 #FFF, 1px 51px 20px #FFF;
+    margin-top: -130px;
+    height: 184px;
+    background: #222;
+}
+
+#basket {
+    width: 100px;
+    height: 100px;
+    background-image: url(img/basket-img.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    border: 1px solid black;
+    margin: 30px auto;
+    position: relative;
+}
+
+#basket:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.7);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.7);
+}
+
+#prod-count {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    top: 5px;
+    left: 65px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.7);
+    display: none;
+}
+
+#basket-body {
+    display: none;
+    width: 700px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.7);
+    background-color: darkgray;
+    position: relative;
+    margin: 30px auto;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#basket-body h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#close {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 32px;
+    height: 32px;
+    transition: transform .25s ease-in-out;
+}
+
+#close::before {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    height: 0;
+    border-top: 2px solid rgba(0,0,0,0.5);
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+#close:after {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    height: 0;
+    border-top: 2px solid rgba(0,0,0,0.5);
+    transform: rotate(-45deg);
+    transform-origin: center;
+}
+
+#close:hover {
+    transform: rotate(180deg);
+}
+
+
+#clear-basket{
+    display: block;
+    margin: 30px auto;
+    padding: 5px 30px;
+    cursor: pointer;
+}
